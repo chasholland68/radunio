@@ -15,7 +15,9 @@ const myPlaintextPassword = '';
 // const someOtherPlaintextPassword = 'not_bacon';
 var hashHolder = '';
 
-app.use(express.static("client/build"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 app.get('/', (req, res) => {
   // console.log('/ route hit');
